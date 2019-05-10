@@ -40,9 +40,9 @@ public class TransactionThread extends Thread {
 
     private void callRestService() {
         try {
+            Thread.sleep(50000);
             URL url = new URL(ApplicationProperties.getProperty("app.account.error.service"));
             getResponse(url, gson.toJson(accountRequest));
-            Thread.sleep(50000);
         } catch (Exception e) {
             LOGGER.error("Error Kontrol servis çağırım öncesi");
         }
