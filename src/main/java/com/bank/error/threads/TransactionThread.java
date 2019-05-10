@@ -32,6 +32,7 @@ public class TransactionThread extends Thread {
                     accountRequest.setId(item.getId().toString());
                     callRestService();
                 });
+                Thread.sleep(30000);
             }
         } catch (Exception e) {
             this.start();
@@ -40,7 +41,6 @@ public class TransactionThread extends Thread {
 
     private void callRestService() {
         try {
-            Thread.sleep(50000);
             URL url = new URL(ApplicationProperties.getProperty("app.account.error.service"));
             getResponse(url, gson.toJson(accountRequest));
         } catch (Exception e) {
