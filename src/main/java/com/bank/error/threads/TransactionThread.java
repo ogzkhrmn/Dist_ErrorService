@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class TransactionThread extends Thread {
 
@@ -32,7 +33,7 @@ public class TransactionThread extends Thread {
                     accountRequest.setId(item.getId().toString());
                     callRestService();
                 });
-                Thread.sleep(30000);
+                TimeUnit.MINUTES.sleep(5);
             }
         } catch (Exception e) {
             this.start();
